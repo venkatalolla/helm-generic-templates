@@ -1,26 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
-  labels:
-    app: {{ .Release.Name }}
-  name: sample-java
+  labels: 
+{{ include "java-app.labels" . | indent 4 }}
+  name: {{ template "java-app.fullname" . }}
 spec:
-  replicas: {{ .Values.replicaCount}}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: {{ template "java-app.fullname" . }}
+      release: {{ .Release.Name }}
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        {{ include "java-app.labels" . | indent 8 }}
     spec:
-      volumes:
-      - name: docker-sock-volume
-        hostPath:
-          path: /var/run/docker.sock
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         name: {{ .Release.Name }}
