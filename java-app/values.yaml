@@ -9,8 +9,8 @@ image:
   tag: 1.0
 
 deployment:
-  name: https
-  port: 80
+  portName: https
+  containerPort: 80
 
 
 service:
