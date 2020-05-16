@@ -30,7 +30,7 @@ If release name contains chart name it will be used as a full name.
 {{- define "java-app.labels" -}}
 app: {{ template "java-app.name" . }}
 fullname: {{ template "java-app.fullname" . }}
-chart: {{ template "java-app.chart" . }}
+chart: {{ template "java-app.name" . }}
 release: {{ .Release.Name }}
 heritage: {{ .Release.Service }}
 {{- end -}}
