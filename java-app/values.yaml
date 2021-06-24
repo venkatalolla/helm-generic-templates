@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: suryalolla/sample-java
-  tag: 1.0
+  tag: test
 
 deployment:
   portName: https
@@ -40,10 +40,10 @@ route:
 #   # resources, such as Minikube. If you do want to specify resources, uncomment the following
 #   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
 #   # limits:
-#   #  cpu: 100m
+#   #  cpu: testm
 #   #  memory: 128Mi
 #   # requests:
-#   #  cpu: 100m
+#   #  cpu: testm
 #   #  memory: 128Mi
 
 # nodeSelector: {}
