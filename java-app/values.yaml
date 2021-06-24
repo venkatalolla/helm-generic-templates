@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: suryalolla/sample-java
-  tag: 8fd3a90b6933b413cec3119ade462c1e5115b4be
+  repository: venkatalolla/maven-tekton-app
+  tag: 1378675fdd1c12dda3819cd0aa62e37fcfe2a5bc
   pullSecret: regcred
 
 deployment:
