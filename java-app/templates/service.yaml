@@ -10,6 +10,5 @@ spec:
     name: {{ .Values.service.portName }}
     targetPort: {{ .Values.deployment.containerPort }}
   selector:
-    app: {{ template "java-app.fullname" . }}
-    release: {{ .Release.Name }}
+{{ include "java-app.labels" . | indent 6 }}
   type: {{ .Values.service.type }}

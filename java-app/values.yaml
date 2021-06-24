@@ -5,27 +5,22 @@
 replicaCount: 1
 
 image:
-  repository: suryalolla/sample-java
-  tag: 1.0
+  repository: venkatalolla/maven-tekton-app
+  tag: 052fb83a81d12f62b78c79893eb083b0c0f1ae63
 
 deployment:
-  portName: https
-  containerPort: 80
-
+  containerPort: 8080
 
 service:
   name: https
   type: ClusterIP
-  port: 80
+  port: 8080
 
-route:
-  host: java-app.ose311.levvel-labs.io
-  path: /
-# ingress:
-#   enabled: false
+ingress:
+  enabled: true
+  host: hello.levvel-labs.io
+  routePath: /java-app
 #   annotations: {}
-#     # kubernetes.io/ingress.class: nginx
-#     # kubernetes.io/tls-acme: "true"
 #   path: /
 #   hosts:
 #     - chart-example.local
@@ -33,21 +28,3 @@ route:
 #   #  - secretName: chart-example-tls
 #   #    hosts:
 #   #      - chart-example.local
-
-# resources: {}
-#   # We usually recommend not to specify default resources and to leave this as a conscious
-#   # choice for the user. This also increases chances charts run on environments with little
-#   # resources, such as Minikube. If you do want to specify resources, uncomment the following
-#   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-#   # limits:
-#   #  cpu: 100m
-#   #  memory: 128Mi
-#   # requests:
-#   #  cpu: 100m
-#   #  memory: 128Mi
-
-# nodeSelector: {}
-
-# tolerations: []
-
-# affinity: {}

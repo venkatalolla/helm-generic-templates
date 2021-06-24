@@ -8,19 +8,17 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "java-app.fullname" . }}
-      release: {{ .Release.Name }}
+{{ include "java-app.labels" . | indent 6 }}
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        {{ include "java-app.labels" . | indent 8 }}
+{{ include "java-app.labels" . | indent 8 }}
     spec:
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         name: {{ .Release.Name }}
         imagePullPolicy: IfNotPresent
         ports:
-          - name: {{ .Values.deployment.portName }}
-            port: {{ .Values.deployment.containerPort }} 
+          - containerPort: {{ .Values.deployment.containerPort }}
