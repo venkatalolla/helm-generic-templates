@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: venkatalolla/maven-tekton-app
-  tag: 7df52985e0c93f75c2df74bccb49151b3b1290b5
+  tag: c3a4fe7f14d722e80c3e5ac51d6130cfaa70f232
   pullSecret: regcred
 
 deployment:
