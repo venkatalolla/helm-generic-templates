@@ -7,6 +7,7 @@ replicaCount: 1
 image:
   repository: suryalolla/sample-java
   tag: 8fd3a90b6933b413cec3119ade462c1e5115b4be
+  pullSecret: regcred
 
 deployment:
   containerPort: 8080

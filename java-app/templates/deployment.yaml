@@ -19,6 +19,8 @@ spec:
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         name: {{ .Release.Name }}
+        imagePullSecrets:
+          - name: {{ .Values.image.pullSecret }}
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: {{ .Values.deployment.containerPort }}
